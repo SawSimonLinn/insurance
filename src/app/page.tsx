@@ -1,103 +1,125 @@
+import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Rocket, ShieldCheck, Users } from "lucide-react";
+// use the image from public folder name hero.png for hero section
+import heroImage from "../../public/hero.png";
+// import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      {/* Hero Section */}
+      <section className="bg-white py-20 px-6">
+        <div className="container md:flex md:items-center md:justify-between">
+          <div className="max-w-2xl text-center md:text-left">
+            <h1 className="text-4xl md:text-5xl font-bold font-headline text-gray-900 mb-4">
+              Simple, smart health insurance — built for peace of mind
+            </h1>
+            <p className="text-gray-600 text-lg mb-6">
+              Choosing a health plan can be confusing. We make it easy with
+              transparent pricing, flexible options, and fast online
+              applications that keep you covered.
+            </p>
+            <Button asChild size="lg">
+              <Link href="/apply">Apply Now</Link>
+            </Button>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <div className="mt-10 md:mt-0 md:ml-10">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={heroImage.src}
+              alt={"Hero Image"}
+              data-ai-hint={"hero image showing happy family"}
+              width={600}
+              height={500}
+              className="w-full max-w-md mx-auto md:mx-0 rounded-lg"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold">
+              Why Choose InsureFast?
+            </h2>
+            <p className="text-muted-foreground mt-2 max-w-xl mx-auto">
+              We focus on what matters most: your peace of mind. Here's how we
+              make insurance better.
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            <Card className="text-center transition-shadow hover:shadow-lg">
+              <CardHeader>
+                <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit">
+                  <Rocket className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle className="font-headline mt-4">
+                  Quick & Easy Application
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Apply online in under 5 minutes with our intuitive form. No
+                  paperwork, no hassle.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="text-center transition-shadow hover:shadow-lg">
+              <CardHeader>
+                <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit">
+                  <ShieldCheck className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle className="font-headline mt-4">
+                  Tailored Plans
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  We offer a range of plans designed to fit your unique life and
+                  budget needs.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="text-center transition-shadow hover:shadow-lg">
+              <CardHeader>
+                <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit">
+                  <Users className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle className="font-headline mt-4">
+                  24/7 Human Support
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Our dedicated support team is always available to answer your
+                  questions and help you.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24 bg-secondary">
+        <div className="container px-4 md:px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">
+            Ready to Get Started?
+          </h2>
+          <p className="mt-4 max-w-xl mx-auto text-muted-foreground">
+            Protect what matters most. Get your free, no-obligation quote today
+            and join the InsureFast family.
+          </p>
+          <Button asChild size="lg" className="mt-8">
+            <Link href="/apply">Apply Now</Link>
+          </Button>
+        </div>
+      </section>
+    </>
   );
 }
