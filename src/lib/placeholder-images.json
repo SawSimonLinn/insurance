@@ -1,16 +1,46 @@
 {
   "placeholderImages": [
     {
-      "id": "about-us",
-      "description": "A modern and bright office space, representing a professional and welcoming company.",
-      "imageUrl": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBvZmZpY2V8ZW58MHx8fHwxNzU5MzI3MzQ4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "modern office"
+      "id": "hero-background",
+      "description": "A modern and welcoming office interior, suggesting professionalism and comfort.",
+      "imageUrl": "https://picsum.photos/seed/insurance-hub/1920/1080",
+      "imageHint": "professional office"
     },
     {
-      "id": "hero-illustration",
-      "description": "A modern illustration showing people interacting with health and insurance symbols, conveying a sense of security and care.",
-      "imageUrl": "https://images.unsplash.com/photo-1722235625873-7b2d84c27acd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoZWFsdGglMjBpbnN1cmFuY2UlMjBpbGx1c3RyYXRpb258ZW58MHx8fHwxNzU5MzczMDg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "health insurance illustration"
+      "id": "auto-insurance",
+      "description": "A car driving on a scenic road, representing freedom and protection.",
+      "imageUrl": "https://picsum.photos/seed/auto-insurance/800/600",
+      "imageHint": "car road"
+    },
+    {
+      "id": "home-insurance",
+      "description": "A beautiful family home, representing security and a safe haven.",
+      "imageUrl": "https://picsum.photos/seed/home-insurance/800/600",
+      "imageHint": "family home"
+    },
+    {
+      "id": "commercial-insurance",
+      "description": "A bustling small business storefront, representing entrepreneurship and commercial activity.",
+      "imageUrl": "https://picsum.photos/seed/commercial-insurance/800/600",
+      "imageHint": "small business"
+    },
+    {
+      "id": "life-health-insurance",
+      "description": "A multi-generational family smiling, representing health and legacy.",
+      "imageUrl": "https://picsum.photos/seed/life-health-insurance/800/600",
+      "imageHint": "happy family"
+    },
+    {
+      "id": "client-photo",
+      "description": "A professional and friendly portrait of the insurance agency owner.",
+      "imageUrl": "https://picsum.photos/seed/client-portrait/600/800",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "logo",
+      "description": "Ventures Quality Insurance agency logo",
+      "imageUrl": "https://picsum.photos/seed/logo/180/40",
+      "imageHint": "company logo"
     }
   ]
 }

@@ -1,53 +1,50 @@
+import { Phone, Mail, Printer, Linkedin, Facebook, Instagram } from 'lucide-react';
 import Link from 'next/link';
-import { Shield, Twitter, Facebook, Instagram } from 'lucide-react';
 
-export function Footer() {
+export default function Footer() {
+  const socialLinks = [
+    { name: 'LinkedIn', icon: Linkedin, url: '#' },
+    { name: 'Facebook', icon: Facebook, url: '#' },
+    { name: 'Instagram', icon: Instagram, url: '#' },
+  ];
+
   return (
-    <footer className="border-t bg-secondary/30">
-      <div className="container py-12">
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="flex flex-col gap-2">
-            <Link href="/" className="flex items-center space-x-2 mb-2">
-              <Shield className="h-6 w-6 text-primary" />
-              <span className="font-bold font-headline text-lg">InsureFast</span>
-            </Link>
-            <p className="text-muted-foreground text-sm">
-              Fast, Simple, and Reliable Insurance.
-            </p>
+    <footer className="bg-slate-800 text-slate-300">
+      <div className="container mx-auto py-12 px-4">
+        <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
+          <div className="md:col-span-1">
+            <h3 className="font-headline text-xl font-bold text-white">Ventures Quality Insurance Agency, LLC</h3>
+            <p className="mt-2 text-sm">📍 Indiana, USA</p>
+             <a href="https://www.venturesqualityinsurance.com" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white transition-colors">www.venturesqualityinsurance.com</a>
           </div>
-          <div className="grid grid-cols-2 md:col-span-2 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-headline font-semibold mb-4">Company</h3>
-              <ul className="space-y-2">
-                <li><Link href="/about" className="text-sm text-muted-foreground hover:text-primary">About Us</Link></li>
-                <li><Link href="/plans" className="text-sm text-muted-foreground hover:text-primary">Plans</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-headline font-semibold mb-4">Support</h3>
-              <ul className="space-y-2">
-                <li><Link href="/#faq" className="text-sm text-muted-foreground hover:text-primary">FAQ</Link></li>
-                <li><Link href="/contact" className="text-sm text-muted-foreground hover:text-primary">Contact Us</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-headline font-semibold mb-4">Legal</h3>
-              <ul className="space-y-2">
-                <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary">Privacy Policy</Link></li>
-                <li><Link href="/terms-of-service" className="text-sm text-muted-foreground hover:text-primary">Terms of Service</Link></li>
-              </ul>
-            </div>
+          <div className="md:col-span-1">
+             <h4 className="font-semibold text-white mb-4">Contact Us</h4>
+             <ul className="space-y-2 text-sm">
+                <li><a href="tel:555-555-5555" className="flex items-center justify-center md:justify-start gap-2 hover:text-white transition-colors"><Phone size={16} /> Office: (555) 555-5555</a></li>
+                <li className="flex items-center justify-center md:justify-start gap-2"><Printer size={16} /> Fax: (555) 555-5556</li>
+                <li><a href="mailto:contact@venturesquality.com" className="flex items-center justify-center md:justify-start gap-2 hover:text-white transition-colors"><Mail size={16} /> Email: contact@venturesquality.com</a></li>
+             </ul>
           </div>
+           <div className="md:col-span-1">
+                <h4 className="font-semibold text-white mb-4">Follow Us</h4>
+                <div className="flex justify-center md:justify-start space-x-4">
+                    {socialLinks.map(link => (
+                        <a key={link.name} href={link.url} aria-label={link.name} className="hover:text-white transition-colors">
+                            <link.icon size={24} />
+                        </a>
+                    ))}
+                </div>
+            </div>
         </div>
-        <div className="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} InsureFast. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <Link href="#" aria-label="Twitter" className="text-muted-foreground hover:text-primary"><Twitter size={20} /></Link>
-            <Link href="#" aria-label="Facebook" className="text-muted-foreground hover:text-primary"><Facebook size={20} /></Link>
-            <Link href="#" aria-label="Instagram" className="text-muted-foreground hover:text-primary"><Instagram size={20} /></Link>
+        <div className="mt-8 pt-8 border-t border-slate-700 text-center text-sm text-slate-400">
+          <div className="flex justify-center flex-wrap gap-x-4 gap-y-2 mb-4">
+              <Link href="/user-agreement" className="hover:text-white transition-colors">User Agreement</Link>
+              <Link href="/accessibility" className="hover:text-white transition-colors">Accessibility</Link>
+              <Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link>
+              <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
           </div>
+          <p>&copy; {new Date().getFullYear()} Ventures Quality Insurance Agency, LLC. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

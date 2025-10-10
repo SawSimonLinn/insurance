@@ -1,59 +1,66 @@
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Privacy Policy | InsureFast',
-  description: 'Understand how InsureFast collects, uses, and protects your personal information.',
-};
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="py-16 md:py-24">
-      <div className="container max-w-3xl mx-auto prose">
-        <h1 className="text-4xl md:text-5xl font-headline font-bold mb-8">Privacy Policy</h1>
-        <p className="text-muted-foreground">Last Updated: {new Date().toLocaleDateString()}</p>
+    <div className="flex flex-col min-h-screen bg-background">
+      <Header />
+      <main className="flex-1 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary mb-8">
+              Privacy Policy
+            </h1>
+            <div className="prose lg:prose-xl text-foreground/80 space-y-6">
+                <p>
+                    Your privacy is important to us. It is Ventures Quality Insurance Agency, LLC's policy to respect your privacy regarding any information we may collect from you across our website, <a href="https://www.venturesqualityinsurance.com">https://www.venturesqualityinsurance.com</a>, and other sites we own and operate.
+                </p>
 
-        <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-headline font-semibold">1. Introduction</h2>
-          <p>
-            InsureFast ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
-          </p>
-        </section>
+                <h2 className="font-headline text-2xl font-bold text-primary pt-4">1. Information we collect</h2>
+                <p>
+                    We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.
+                </p>
+                <p>
+                    The personal information we collect may include your name, email address, phone number, address, date of birth, and details about your insurance needs. This information is collected through our quote request form and other interactions with our site.
+                </p>
 
-        <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-headline font-semibold">2. Information We Collect</h2>
-          <p>
-            We may collect personal information from you in a variety of ways, including, but not limited to, when you visit our site, apply for a plan, subscribe to a newsletter, and in connection with other activities, services, features, or resources we make available. You may be asked for, as appropriate, name, email address, mailing address, phone number, and financial information.
-          </p>
-        </section>
+                <h2 className="font-headline text-2xl font-bold text-primary pt-4">2. How we use your information</h2>
+                <p>
+                    We use the information we collect to provide, maintain, and improve our services, including to:
+                </p>
+                <ul>
+                    <li>Process your requests for insurance quotes.</li>
+                    <li>Communicate with you about your policies and our services.</li>
+                    <li>Personalize your experience on our website.</li>
+                    <li>Comply with legal obligations.</li>
+                </ul>
 
-        <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-headline font-semibold">3. How We Use Your Information</h2>
-          <p>
-            We use the information we collect to personalize your experience, to improve our website, to process transactions, to send periodic emails, and to provide customer service. We implement a variety of security measures to maintain the safety of your personal information when you place an order or enter, submit, or access your personal information.
-          </p>
-        </section>
+                <h2 className="font-headline text-2xl font-bold text-primary pt-4">3. Security of your information</h2>
+                <p>
+                    We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.
+                </p>
 
-        <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-headline font-semibold">4. Sharing Your Information</h2>
-          <p>
-            We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential.
-          </p>
-        </section>
+                <h2 className="font-headline text-2xl font-bold text-primary pt-4">4. Links to other sites</h2>
+                <p>
+                    Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.
+                </p>
 
-        <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-headline font-semibold">5. Your Consent</h2>
-          <p>
-            By using our site, you consent to our website's privacy policy.
-          </p>
-        </section>
+                <h2 className="font-headline text-2xl font-bold text-primary pt-4">5. Your rights</h2>
+                 <p>
+                    You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.
+                </p>
 
-        <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-headline font-semibold">6. Contact Us</h2>
-          <p>
-            If you have any questions regarding this privacy policy, you may contact us using the information on our contact page.
-          </p>
-        </section>
-      </div>
+                <h2 className="font-headline text-2xl font-bold text-primary pt-4">Contact Us</h2>
+                <p>
+                    If you have any questions about how we handle user data and personal information, feel free to contact us.
+                </p>
+                
+                <p>This policy is effective as of {new Date().toLocaleDateString()}.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }

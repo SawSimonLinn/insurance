@@ -1,110 +1,103 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin } from "lucide-react";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Contact Us | InsureFast",
-  description:
-    "Get in touch with InsureFast. We are here to help you with your questions about our insurance plans and services.",
-};
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
+import { Mail, Phone, Printer, Clock, FileText, BadgeInfo } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import ContactForm from '@/components/sections/contact-form';
 
 export default function ContactPage() {
   return (
-    <div className="py-16 md:py-24">
-      <div className="container">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-headline font-bold">
-            Get In Touch
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            We'd love to hear from you! Whether you have a question about our
-            plans, pricing, or anything else, our team is ready to answer all
-            your questions.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 mt-16">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline">
-                  Contact Information
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6 text-muted-foreground">
-                <div className="flex items-start gap-4">
-                  <MapPin className="h-6 w-6 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">
-                      Our Office
-                    </h3>
-                    <p>
-                      123 Insurance Lane, Suite 500
-                      <br />
-                      New York, NY 10001
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Mail className="h-6 w-6 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">Email Us</h3>
-                    <p>support@insurefast.com</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Phone className="h-6 w-6 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">Call Us</h3>
-                    <p>(123) 456-7890</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Contact Form */}
-          <div>
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline">
-                  Send Us a Message
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Name</Label>
-                      <Input id="name" placeholder="Your Name" />
+    <div className="flex flex-col min-h-screen bg-background">
+      <Header />
+      <main className="flex-1 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+             <div className="text-center mb-16">
+                <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary mb-8">
+                Contact Us
+                </h1>
+                <p className="text-lg text-foreground/80 mb-12 max-w-4xl mx-auto">
+                We're here to help. Reach out to us with any questions or to discuss your insurance needs.
+                </p>
+                <div className="grid md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto">
+                    <div className="flex items-start gap-4">
+                        <Phone className="w-8 h-8 text-primary mt-1" />
+                        <div>
+                            <h3 className="font-bold text-xl text-primary">Office Phone</h3>
+                            <a href="tel:555-555-5555" className="text-lg text-foreground/80 hover:text-primary">(555) 555-5555</a>
+                        </div>
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="Your Email" />
+                    <div className="flex items-start gap-4">
+                        <Mail className="w-8 h-8 text-primary mt-1" />
+                        <div>
+                            <h3 className="font-bold text-xl text-primary">Email</h3>
+                            <a href="mailto:contact@venturesquality.com" className="text-lg text-foreground/80 hover:text-primary">contact@venturesquality.com</a>
+                        </div>
                     </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Your message..."
-                      rows={5}
-                    />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                    <div className="flex items-start gap-4">
+                        <Printer className="w-8 h-8 text-primary mt-1" />
+                        <div>
+                            <h3 className="font-bold text-xl text-primary">Fax</h3>
+                            <p className="text-lg text-foreground/80">(555) 555-5556</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-start border-t pt-16">
+                 <div className="text-left">
+                    <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary mb-8 text-center lg:text-left">
+                        Customer Service & Claims
+                    </h2>
+                    <div className="grid md:grid-cols-1 gap-8">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                                    <Phone />
+                                    Customer Service
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-2 text-foreground/80">
+                                <p>If you need to speak to a Call Center Agent regarding your insurance policy, or to make a payment, please call <a href="tel:555-555-5555" className="text-primary font-semibold hover:underline">(555) 555-5555</a>.</p>
+                                <p className="flex items-center gap-2 text-sm"><Clock size={16} />Our office hours are Monday – Friday, 8:00 a.m. – 5:00 p.m. PST.</p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                                    <FileText />
+                                    Report a New Claim
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-2 text-foreground/80">
+                                <p>To report an auto claim please contact our claims department at <a href="tel:555-555-5555" className="text-primary font-semibold hover:underline">(555) 555-5555</a>, and follow the menu to Report New Claim. One of our representatives will assist you to file a claim.</p>
+                                <p>If possible, please have the policy number available to reference.</p>
+                                <p className="flex items-center gap-2 text-sm"><Clock size={16} />Our office hours are Monday – Friday, 8:00 a.m. – 5:00 p.m. PST.</p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                                    <BadgeInfo />
+                                    Claim Status
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-2 text-foreground/80">
+                                <p>To check the status of an existing claim please contact our claims department at <a href="tel:555-555-5555" className="text-primary font-semibold hover:underline">(555) 555-5555</a>, and follow the menu for an Existing Claim.</p>
+                                <p>If possible, please have the claim number available to reference.</p>
+                                <p>If you know your claim examiner's extension you may contact them at <a href="tel:555-555-5555" className="text-primary font-semibold hover:underline">(555) 555-5555</a> and enter the extension to reach them directly.</p>
+                                <p className="flex items-center gap-2 text-sm"><Clock size={16} />Our office hours are Monday – Friday, 8:00 a.m. – 5:00 p.m. PST.</p>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+                <div>
+                  <ContactForm />
+                </div>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }
