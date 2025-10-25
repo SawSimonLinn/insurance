@@ -121,39 +121,21 @@ export default function QuoteForm() {
                   control={form.control}
                   name="birthday"
                   render={({ field }) => (
-                    <FormItem className="flex flex-col">
-                      <FormLabel>Birthday</FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <FormControl>
-                            <Button
-                              variant={"outline"}
-                              className={cn(
-                                "w-full pl-3 text-left font-normal",
-                                !field.value && "text-muted-foreground"
-                              )}
-                            >
-                              {field.value ? (
-                                format(field.value, "PPP")
-                              ) : (
-                                <span>Pick a date</span>
-                              )}
-                              <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                            </Button>
-                          </FormControl>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0" align="start">
-                          <Calendar
-                            mode="single"
-                            selected={field.value}
-                            onSelect={field.onChange}
-                            disabled={(date) =>
-                              date > new Date() || date < new Date("1900-01-01")
-                            }
-                            initialFocus
-                          />
-                        </PopoverContent>
-                      </Popover>
+                    <FormItem>
+                      <FormLabel>Date of Birth</FormLabel>
+                      <FormControl>
+                        <input
+                          type="date"
+                          className="w-full rounded-md border px-3 py-2 text-gray-900 shadow-sm focus:border-primary focus:ring-primary focus:outline-none"
+                          value={
+                            field.value ? format(field.value, "yyyy-MM-dd") : ""
+                          }
+                          onChange={(e) =>
+                            field.onChange(new Date(e.target.value))
+                          }
+                          max={new Date().toISOString().split("T")[0]}
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
