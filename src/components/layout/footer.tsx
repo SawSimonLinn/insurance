@@ -52,7 +52,7 @@ export default function Footer() {
                   href="mailto:contact@venturesquality.com"
                   className="flex items-center justify-center md:justify-start gap-2 hover:text-white transition-colors"
                 >
-                  <Mail size={16} /> Email: contact@venturesquality.com
+                  <Mail size={16} /> Email: contact@venturesqualityinsurance.com
                 </a>
               </li>
             </ul>
