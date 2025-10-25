@@ -18,8 +18,20 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { handleContactRequest } from "@/app/actions";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { services } from "@/lib/services";
 
 const formSchema = z.object({
@@ -55,14 +67,17 @@ export default function ContactForm() {
     if (result.success) {
       toast({
         title: "Message Sent!",
-        description: "Thank you for your message. We'll get back to you shortly.",
+        description:
+          "Thank you for your message. We'll get back to you shortly.",
       });
       form.reset();
     } else {
       toast({
         variant: "destructive",
         title: "Something went wrong.",
-        description: result.error || "There was a problem with your request. Please try again.",
+        description:
+          result.error ||
+          "There was a problem with your request. Please try again.",
       });
     }
     setIsSubmitting(false);
@@ -82,7 +97,10 @@ export default function ContactForm() {
           </CardHeader>
           <CardContent>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <FormField
                   control={form.control}
                   name="name"
@@ -96,51 +114,67 @@ export default function ContactForm() {
                     </FormItem>
                   )}
                 />
-                 <FormField
+                <FormField
                   control={form.control}
                   name="email"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Email Address</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="e.g. you@example.com" {...field} />
+                        <Input
+                          type="email"
+                          placeholder="e.g. you@example.com"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                 <FormField
+                <FormField
                   control={form.control}
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Phone Number (Optional)</FormLabel>
                       <FormControl>
-                        <Input type="tel" placeholder="e.g. (555) 555-5555" {...field} />
+                        <Input
+                          type="tel"
+                          placeholder="e.g. (317) 300-1906"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                 <FormField
+                <FormField
                   control={form.control}
                   name="inquiryType"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Inquiry Type</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="Select what your inquiry is about" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {services.map(service => (
-                            <SelectItem key={service.slug} value={service.title}>
+                          {services.map((service) => (
+                            <SelectItem
+                              key={service.slug}
+                              value={service.title}
+                            >
                               {service.title}
                             </SelectItem>
                           ))}
-                          <SelectItem value="General Inquiry">General Inquiry</SelectItem>
+                          <SelectItem value="General Inquiry">
+                            General Inquiry
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -154,13 +188,16 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel>Subject</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g. Question about my auto policy" {...field} />
+                        <Input
+                          placeholder="e.g. Question about my auto policy"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                 <FormField
+                <FormField
                   control={form.control}
                   name="message"
                   render={({ field }) => (
@@ -177,8 +214,13 @@ export default function ContactForm() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90" size="lg" disabled={isSubmitting}>
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                <Button
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90"
+                  size="lg"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </Form>

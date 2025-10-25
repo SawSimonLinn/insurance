@@ -1,13 +1,13 @@
-import { services, Service } from '@/lib/services';
-import { notFound } from 'next/navigation';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { CheckCircle, ArrowLeft } from 'lucide-react';
+import { services, Service } from "@/lib/services";
+import { notFound } from "next/navigation";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { CheckCircle, ArrowLeft } from "lucide-react";
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -15,14 +15,20 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
+export default function ServiceDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const service = services.find((s) => s.slug === params.slug);
 
   if (!service) {
     notFound();
   }
 
-  const serviceImage = PlaceHolderImages.find(img => img.id === service.imageId);
+  const serviceImage = PlaceHolderImages.find(
+    (img) => img.id === service.imageId
+  );
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -37,8 +43,9 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
               </Link>
             </Button>
             <Card className="shadow-lg overflow-hidden">
-              {serviceImage && (
-                <div className="relative w-full h-64">
+              {serviceImage && serviceImage.imageUrl && (
+                //  i also want the image a little more height on desktop too.
+                <div className="relative w-full h-64 md:h-96  ">
                   <Image
                     src={serviceImage.imageUrl}
                     alt={serviceImage.description}
@@ -49,7 +56,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                 </div>
               )}
               <CardHeader className="text-center">
-                <div className="mx-auto bg-primary/10 rounded-full p-4 w-fit mb-4 -mt-16 bg-background relative z-10 border-4 border-background">
+                <div className="mx-auto bg-primary/10 rounded-full p-4 w-fit mb-4 -mt-16  relative z-10 border-4 border-background">
                   <service.icon className="w-12 h-12 text-primary" />
                 </div>
                 <CardTitle className="font-headline text-3xl md:text-4xl font-bold text-primary">
@@ -64,7 +71,9 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                 </div>
 
                 <div>
-                  <h3 className="font-headline text-2xl font-bold text-primary mb-4">What's Covered</h3>
+                  <h3 className="font-headline text-2xl font-bold text-primary mb-4">
+                    What's Covered
+                  </h3>
                   <ul className="space-y-2">
                     {service.whatIsCovered.map((item, index) => (
                       <li key={index} className="flex items-start">
@@ -76,16 +85,18 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                 </div>
 
                 <div className="text-center border-t pt-8 mt-8">
-                   <p className="text-2xl font-bold text-primary mb-4">
-                      Plans starting at just ${service.price}/month
-                   </p>
+                  <p className="text-2xl font-bold text-primary mb-4">
+                    Plans starting at just ${service.price}/month
+                  </p>
                   <Button asChild size="lg">
-                    <Link href="/quote">Get a Personalized Quote for {service.title}</Link>
+                    <Link href="/quote">
+                      Get a Personalized Quote for {service.title}
+                    </Link>
                   </Button>
                 </div>
               </CardContent>
             </Card>
-           </div>
+          </div>
         </div>
       </main>
       <Footer />

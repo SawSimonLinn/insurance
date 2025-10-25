@@ -43,7 +43,9 @@ const formSchema = z.object({
   }),
   email: z.string().email("Invalid email address."),
   phone: z.string().min(10, "Phone number must be at least 10 digits."),
-  insuranceType: z.enum(["Auto", "Home", "Commercial", "Life & Health"], { required_error: "Please select an insurance type." }),
+  insuranceType: z.enum(["Auto", "Home", "Commercial", "Life & Health"], {
+    required_error: "Please select an insurance type.",
+  }),
   address: z.string().min(10, "Address must be at least 10 characters."),
 });
 
@@ -64,21 +66,24 @@ export default function QuoteForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     const result = await handleQuoteRequest({
-        ...values,
-        birthday: values.birthday.toISOString(),
+      ...values,
+      birthday: values.birthday.toISOString(),
     });
 
     if (result.success) {
       toast({
         title: "Request Sent!",
-        description: "Thank you for reaching out! Our team will contact you soon to discuss your coverage options.",
+        description:
+          "Thank you for reaching out! Our team will contact you soon to discuss your coverage options.",
       });
       form.reset();
     } else {
       toast({
         variant: "destructive",
         title: "Something went wrong.",
-        description: result.error || "There was a problem with your request. Please try again.",
+        description:
+          result.error ||
+          "There was a problem with your request. Please try again.",
       });
     }
     setIsSubmitting(false);
@@ -95,7 +100,10 @@ export default function QuoteForm() {
           </CardHeader>
           <CardContent>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <FormField
                   control={form.control}
                   name="name"
@@ -150,27 +158,35 @@ export default function QuoteForm() {
                     </FormItem>
                   )}
                 />
-                 <FormField
+                <FormField
                   control={form.control}
                   name="email"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Email Address</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="e.g. you@example.com" {...field} />
+                        <Input
+                          type="email"
+                          placeholder="e.g. you@example.com"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                 <FormField
+                <FormField
                   control={form.control}
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Phone Number</FormLabel>
                       <FormControl>
-                        <Input type="tel" placeholder="e.g. (555) 555-5555" {...field} />
+                        <Input
+                          type="tel"
+                          placeholder="e.g. (317) 300-1906"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -182,7 +198,10 @@ export default function QuoteForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Insurance Type</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="Select an insurance type" />
@@ -191,15 +210,19 @@ export default function QuoteForm() {
                         <SelectContent>
                           <SelectItem value="Auto">Auto Insurance</SelectItem>
                           <SelectItem value="Home">Home Insurance</SelectItem>
-                          <SelectItem value="Commercial">Commercial Insurance</SelectItem>
-                          <SelectItem value="Life & Health">Life & Health Insurance</SelectItem>
+                          <SelectItem value="Commercial">
+                            Commercial Insurance
+                          </SelectItem>
+                          <SelectItem value="Life & Health">
+                            Life & Health Insurance
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                 <FormField
+                <FormField
                   control={form.control}
                   name="address"
                   render={({ field }) => (
@@ -215,8 +238,13 @@ export default function QuoteForm() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90" size="lg" disabled={isSubmitting}>
-                  {isSubmitting ? 'Requesting...' : 'Request Quote'}
+                <Button
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90"
+                  size="lg"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Requesting..." : "Request Quote"}
                 </Button>
               </form>
             </Form>

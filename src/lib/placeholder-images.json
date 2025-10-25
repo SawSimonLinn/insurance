@@ -3,38 +3,38 @@
     {
       "id": "hero-background",
       "description": "A modern and welcoming office interior, suggesting professionalism and comfort.",
-      "imageUrl": "https://picsum.photos/seed/insurance-hub/1920/1080",
+      "imageUrl": "/insurance-hub.jpg",
       "imageHint": "professional office"
     },
     {
       "id": "auto-insurance",
       "description": "A car driving on a scenic road, representing freedom and protection.",
-      "imageUrl": "https://picsum.photos/seed/auto-insurance/800/600",
+      "imageUrl": "/auto-insurance.jpg",
       "imageHint": "car road"
     },
     {
       "id": "home-insurance",
       "description": "A beautiful family home, representing security and a safe haven.",
-      "imageUrl": "https://picsum.photos/seed/home-insurance/800/600",
+      "imageUrl": "/home-insurance.jpg",
       "imageHint": "family home"
     },
     {
       "id": "commercial-insurance",
       "description": "A bustling small business storefront, representing entrepreneurship and commercial activity.",
-      "imageUrl": "https://picsum.photos/seed/commercial-insurance/800/600",
+      "imageUrl": "/commercial-insurance.jpg",
       "imageHint": "small business"
     },
     {
       "id": "life-health-insurance",
       "description": "A multi-generational family smiling, representing health and legacy.",
-      "imageUrl": "https://picsum.photos/seed/life-health-insurance/800/600",
+      "imageUrl": "/life-health-insurance.jpg",
       "imageHint": "happy family"
     },
     {
       "id": "client-photo",
       "description": "A professional and friendly portrait of the insurance agency owner.",
-      "imageUrl": "https://picsum.photos/seed/client-portrait/600/800",
-      "imageHint": "professional portrait"
+      "imageUrl": "/insurance-hub.jpg",
+      "imageHint": "professional office"
     },
     {
       "id": "logo",
