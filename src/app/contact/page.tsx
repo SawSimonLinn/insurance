@@ -39,10 +39,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-xl text-primary">Email</h3>
                     <a
-                      href="mailto:contact@venturesquality.com"
+                      href="mailto:contact@venturesqualityinsurance.com"
                       className="text-lg text-foreground/80 hover:text-primary"
                     >
-                      contact@venturesquality.com
+                      contact@venturesqualityinsurance.com
                     </a>
                   </div>
                 </div>

@@ -49,7 +49,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:contact@venturesquality.com"
+                  href="mailto:contact@venturesqualityinsurance.com"
                   className="flex items-center justify-center md:justify-start gap-2 hover:text-white transition-colors"
                 >
                   <Mail size={16} /> Email: contact@venturesqualityinsurance.com

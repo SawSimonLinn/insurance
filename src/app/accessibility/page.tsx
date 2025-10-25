@@ -38,7 +38,7 @@ export default function AccessibilityPage() {
               </p>
               <ul>
                 <li>Phone: (317) 300-1906</li>
-                <li>E-mail: contact@venturesquality.com</li>
+                <li>E-mail: contact@venturesqualityinsurance.com</li>
               </ul>
 
               <p>We try to respond to feedback within 5 business days.</p>
