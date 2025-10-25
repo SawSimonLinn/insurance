@@ -32,7 +32,7 @@ export async function handleQuoteRequest(data: any) {
           <p><strong>Date of Birth:</strong> ${formattedBirthday}</p>
           <p><strong>Email:</strong> ${data.email}</p>
           <p><strong>Phone:</strong> ${data.phone}</p>
-          <p><strong>Insurance Type:</strong> ${data.insuranceType}</p>
+          <p><strong>Insurance Type:</strong> ${data.insuranceType} Insurance</p>
           <p><strong>Address:</strong><br/>${data.address}</p>
           <hr/>
           <p style="color:#666;font-size:12px;">This message was automatically generated from your website form.</p>
