@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, Menu, ShieldCheck } from "lucide-react";
+import { Phone, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
@@ -25,7 +25,15 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-4">
         <Link href="/" className="mr-4 flex items-center">
-          <ShieldCheck className="h-8 w-8 mr-2 text-primary" />
+          {logo && (
+            <Image
+              src={logo.imageUrl}
+              alt={logo.imageHint}
+              width={50}
+              height={50}
+              className="mr-2"
+            />
+          )}
           <span className="font-headline text-xl font-bold text-primary">
             Ventures Quality Insurance
           </span>
@@ -67,7 +75,15 @@ export default function Header() {
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <div className="p-4 border-b">
                   <Link href="/" className="mr-4 flex items-center">
-                    <ShieldCheck className="h-8 w-8 mr-2 text-primary" />
+                    {logo && (
+                      <Image
+                        src={logo.imageUrl}
+                        alt={logo.imageHint}
+                        width={40}
+                        height={40}
+                        className="mr-2"
+                      />
+                    )}
                     <span className="font-headline text-xl font-bold text-primary">
                       Ventures Quality Insurance
                     </span>

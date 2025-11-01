@@ -23,6 +23,7 @@ const values = [
 ];
 
 export default function AboutUs() {
+  const logo = PlaceHolderImages.find((img) => img.id === "logo");
   const clientImage = PlaceHolderImages.find(
     (img) => img.id === "client-photo"
   );
@@ -64,15 +65,28 @@ export default function AboutUs() {
           </div>
           <div className="md:col-span-1 flex justify-center">
             {clientImage && (
-              <div className="relative w-full max-w-sm aspect-[3/4] rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-                <Image
-                  src="/headshot.jpg"
-                  alt="Hero background"
-                  fill
-                  className="object-cover"
-                  data-ai-hint="Hero background image"
-                  priority
-                />
+              <div className="relative group w-full max-w-sm aspect-[3/4] rounded-lg overflow-hidden shadow-lg">
+                <div className="relative w-full max-w-sm aspect-[3/4] rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
+                  <Image
+                    src="/headshot.jpg"
+                    alt="Hero background"
+                    fill
+                    className="object-cover"
+                    data-ai-hint="Hero background image"
+                    priority
+                  />
+                </div>
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  {logo && (
+                    <Image
+                      src={logo.imageUrl}
+                      alt={logo.imageHint}
+                      width={100}
+                      height={100}
+                      className="mr-2"
+                    />
+                  )}
+                </div>
               </div>
             )}
           </div>

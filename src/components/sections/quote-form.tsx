@@ -38,7 +38,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
-  birthday: z.string().min(1, "A date of birth is required."), // 👈 string instead of z.date()
+  birthday: z.string().min(1, "A date of birth is required."),
+
   email: z.string().email("Invalid email address."),
   phone: z.string().min(10, "Phone number must be at least 10 digits."),
   insuranceType: z.enum(["Auto", "Home", "Commercial", "Life & Health"], {
@@ -58,6 +59,7 @@ export default function QuoteForm() {
       email: "",
       phone: "",
       address: "",
+      birthday: "",
     },
   });
 
@@ -119,11 +121,11 @@ export default function QuoteForm() {
                     <FormItem>
                       <FormLabel>Date of Birth</FormLabel>
                       <FormControl>
-                        <input
+                        <Input
                           type="date"
-                          className="w-full rounded-md border px-3 py-2 text-gray-900 shadow-sm focus:border-primary focus:ring-primary focus:outline-none"
+                          className="w-full"
                           value={field.value ?? ""}
-                          onChange={(e) => field.onChange(e.target.value || "")}
+                          onChange={field.onChange}
                           max={new Date().toISOString().split("T")[0]}
                         />
                       </FormControl>

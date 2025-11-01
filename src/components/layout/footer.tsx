@@ -10,9 +10,16 @@ import Link from "next/link";
 
 export default function Footer() {
   const socialLinks = [
-    { name: "LinkedIn", icon: Linkedin, url: "#" },
-    { name: "Facebook", icon: Facebook, url: "#" },
-    { name: "Instagram", icon: Instagram, url: "#" },
+    {
+      name: "Facebook",
+      icon: Facebook,
+      url: "https://www.facebook.com/people/Ventures-Quality-Insurance-Agency-LLC/61583249963787/?checkpoint_src=any",
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      url: "https://www.instagram.com/vquality_insurance/",
+    },
   ];
 
   return (
@@ -49,10 +56,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:contact@venturesqualityinsurance.com"
+                  href="mailto:venturesqualityagency@gmail.com"
                   className="flex items-center justify-center md:justify-start gap-2 hover:text-white transition-colors"
                 >
-                  <Mail size={16} /> Email: contact@venturesqualityinsurance.com
+                  <Mail size={16} /> Email: venturesqualityagency@gmail.com
                 </a>
               </li>
             </ul>
@@ -66,6 +73,7 @@ export default function Footer() {
                   href={link.url}
                   aria-label={link.name}
                   className="hover:text-white transition-colors"
+                  target="_blank"
                 >
                   <link.icon size={24} />
                 </a>

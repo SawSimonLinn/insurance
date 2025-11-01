@@ -1,9 +1,16 @@
 import { Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
 
 const socialLinks = [
-  { name: "Facebook", icon: Facebook, url: "#" },
-  { name: "LinkedIn", icon: Linkedin, url: "#" },
-  { name: "Instagram", icon: Instagram, url: "#" },
+  {
+    name: "Facebook",
+    icon: Facebook,
+    url: "https://www.facebook.com/people/Ventures-Quality-Insurance-Agency-LLC/61583249963787/?checkpoint_src=any",
+  },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    url: "https://www.instagram.com/vquality_insurance/",
+  },
 ];
 
 export default function SocialConnect() {
@@ -23,6 +30,7 @@ export default function SocialConnect() {
               href={link.url}
               aria-label={link.name}
               className="flex items-center gap-2 text-lg text-primary hover:text-accent transition-colors"
+              target="_blank"
             >
               <link.icon size={24} />
               <span>{link.name}</span>

@@ -3,7 +3,7 @@
     {
       "id": "hero-background",
       "description": "A modern and welcoming office interior, suggesting professionalism and comfort.",
-      "imageUrl": "/insurance-hub.jpg",
+      "imageUrl": "/insurance-hub.png",
       "imageHint": "professional office"
     },
     {
@@ -39,7 +39,7 @@
     {
       "id": "logo",
       "description": "Ventures Quality Insurance agency logo",
-      "imageUrl": "https://picsum.photos/seed/logo/180/40",
+      "imageUrl": "/company-logo.png",
       "imageHint": "company logo"
     }
   ]
