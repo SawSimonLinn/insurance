@@ -3,6 +3,34 @@
 import nodemailer from "nodemailer";
 import { format } from "date-fns";
 
+const formatPhoneNumber = (rawPhone?: string) => {
+  if (!rawPhone) {
+    return { formatted: "N/A", tel: "" };
+  }
+
+  const digits = rawPhone.replace(/\D/g, "");
+
+  if (digits.length === 10) {
+    const formatted = `(${digits.slice(0, 3)}) ${digits.slice(
+      3,
+      6
+    )}-${digits.slice(6)}`;
+    return { formatted, tel: `+1${digits}` };
+  }
+
+  if (digits.length > 10) {
+    const countryCode = digits.slice(0, digits.length - 10);
+    const local = digits.slice(-10);
+    const formatted = `(${local.slice(0, 3)}) ${local.slice(
+      3,
+      6
+    )}-${local.slice(6)}`;
+    return { formatted: `+${countryCode} ${formatted}`, tel: `+${digits}` };
+  }
+
+  return { formatted: rawPhone, tel: digits ? `+${digits}` : "" };
+};
+
 export async function handleQuoteRequest(data: any) {
   try {
     // ---- 1. Configure Gmail transporter ----
@@ -19,6 +47,13 @@ export async function handleQuoteRequest(data: any) {
       ? format(new Date(data.birthday), "MMMM d, yyyy")
       : "N/A";
 
+    const { formatted: formattedPhone, tel: telPhone } = formatPhoneNumber(
+      data.phone
+    );
+    const phoneHtml = telPhone
+      ? `<a href="tel:${telPhone}" style="color:#0b5394;">${formattedPhone}</a>`
+      : formattedPhone;
+
     // ---- 3. Email to Business (Admin) ----
     const adminMail = {
       from: `"Ventures Quality Insurance" <${process.env.GMAIL_USER}>`,
@@ -30,7 +65,7 @@ export async function handleQuoteRequest(data: any) {
           <p><strong>Full Name:</strong> ${data.name}</p>
           <p><strong>Date of Birth:</strong> ${formattedBirthday}</p>
           <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>Phone:</strong> ${data.phone}</p>
+          <p><strong>Phone:</strong> ${phoneHtml}</p>
           <p><strong>Insurance Type:</strong> ${data.insuranceType}</p>
           <p><strong>Address:</strong><br>${data.address}</p>
           <hr>
@@ -52,7 +87,7 @@ export async function handleQuoteRequest(data: any) {
           <ul>
             <li><strong>Insurance Type:</strong> ${data.insuranceType}</li>
             <li><strong>Date of Birth:</strong> ${formattedBirthday}</li>
-            <li><strong>Phone:</strong> ${data.phone}</li>
+            <li><strong>Phone:</strong> ${phoneHtml}</li>
             <li><strong>Address:</strong> ${data.address}</li>
           </ul>
           <p>If you have any additional details, feel free to reply directly to this email.</p>
