@@ -19,7 +19,6 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
     { href: "/about#services", label: "Services" },
-    { href: "/faq", label: "FAQ" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -52,9 +51,6 @@ export default function Header() {
             className="hover:text-primary transition-colors"
           >
             Services
-          </Link>
-          <Link href="/faq" className="hover:text-primary transition-colors">
-            FAQ
           </Link>
           <Link href="/contact" className="hover:text-primary transition-colors">
             Contact
