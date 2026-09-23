@@ -1,6 +1,6 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import { Mail, Phone, Printer, Clock, FileText, BadgeInfo } from "lucide-react";
+import { Mail, Phone, Printer, Clock, FileText, BadgeInfo, MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ContactForm from "@/components/sections/contact-form";
 
@@ -19,6 +19,17 @@ export default function ContactPage() {
                 We're here to help. Reach out to us with any questions or to
                 discuss your insurance needs.
               </p>
+              <div className="flex items-start gap-4 text-left max-w-4xl mx-auto mb-8">
+                <MapPin className="w-8 h-8 text-primary mt-1" />
+                <div>
+                  <h3 className="font-bold text-xl text-primary">
+                    Office Address
+                  </h3>
+                  <p className="text-lg text-foreground/80">
+                    7774 Madison Avenue, Suite B, Indianapolis, IN 46227
+                  </p>
+                </div>
+              </div>
               <div className="grid md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto">
                 <div className="flex items-start gap-4">
                   <Phone className="w-8 h-8 text-primary mt-1" />

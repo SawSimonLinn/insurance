@@ -47,8 +47,8 @@ export default function AboutUs() {
                 As a family that moved from another country and grew up in the
                 United States, we deeply understand the diverse needs of people
                 from all cultures and backgrounds. That experience has shaped
-                our commitment to helping every Hoosier—no matter their
-                story—find protection and peace of mind through the right
+                our commitment to helping every Hoosier, no matter their
+                story, find protection and peace of mind through the right
                 insurance solutions.
               </p>
               <p>
@@ -59,7 +59,7 @@ export default function AboutUs() {
               </p>
             </div>
             <p className="mt-8 font-headline text-xl italic text-primary">
-              We’re not just your insurance agency — we’re your trusted partner
+              We’re not just your insurance agency, we’re your trusted partner
               in protecting what matters most.
             </p>
           </div>

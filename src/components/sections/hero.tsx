@@ -22,7 +22,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-primary/70" />
       <div className="relative z-10 max-w-4xl mx-auto px-4">
         <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tight">
-          Protecting What Matters Most — With Care and Confidence
+          Protecting What Matters Most: With Care and Confidence
         </h1>
         <p className="mt-6 text-base md:text-xl max-w-3xl mx-auto text-primary-foreground/90">
           Our top priority is to meet your individual needs for insurance

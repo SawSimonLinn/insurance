@@ -5,7 +5,29 @@ import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Ventures Insurance Hub",
-  description: "Protecting What Matters Most — With Care and Confidence",
+  description: "Protecting What Matters Most: With Care and Confidence",
+  other: {
+    "geo.region": "US-IN",
+    "geo.placename": "Indianapolis",
+  },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  name: "Ventures Quality Insurance Agency, LLC",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "7774 Madison Avenue, Suite B",
+    addressLocality: "Indianapolis",
+    addressRegion: "IN",
+    postalCode: "46227",
+    addressCountry: "US",
+  },
+  telephone: "+1-317-300-1906",
+  faxNumber: "+1-317-300-1938",
+  email: "contact@venturesqualityinsurance.com",
+  url: "https://www.venturesqualityinsurance.com",
 };
 
 export default function RootLayout({
@@ -29,6 +51,10 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
       </head>
       <body className="font-body antialiased">

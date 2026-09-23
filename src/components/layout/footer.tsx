@@ -30,7 +30,9 @@ export default function Footer() {
             <h3 className="font-headline text-xl font-bold text-white">
               Ventures Quality Insurance Agency, LLC
             </h3>
-            <p className="mt-2 text-sm">📍 Indiana, USA</p>
+            <p className="mt-2 text-sm">
+              📍 7774 Madison Avenue, Suite B, Indianapolis, IN 46227
+            </p>
             <a
               href="https://www.venturesqualityinsurance.com"
               target="_blank"

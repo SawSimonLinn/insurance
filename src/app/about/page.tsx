@@ -12,9 +12,12 @@ export default function AboutPage() {
       <Header />
       <main className="flex-1">
         <div className="container mx-auto px-4 py-16 md:py-24">
-            <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary text-center mb-12">
-                Ventures Quality Insurance Agency — Our Story &amp; Services
+            <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary text-center mb-4">
+                Ventures Quality Insurance Agency: Our Story &amp; Services
             </h1>
+            <p className="text-center text-foreground/70 mb-12">
+                7774 Madison Avenue, Suite B, Indianapolis, IN 46227
+            </p>
             <Story />
             <Services />
             <WhyChooseUs />
