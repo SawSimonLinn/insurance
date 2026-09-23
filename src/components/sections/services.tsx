@@ -10,7 +10,7 @@ export default function Services() {
         <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">Our Insurance Services</h2>
             <p className="mt-4 text-lg text-foreground/80">
-                We offer a full range of insurance products tailored to individuals, families, and businesses across Indiana and beyond. Our offerings include Auto Insurance, Home Insurance, Commercial Insurance, Business Insurance, Life Insurance, and Health Insurance. Each plan is backed by top-rated carriers and designed to fit your specific needs and budget.
+                We offer a full range of insurance products tailored to individuals, families, and businesses in Indianapolis, IN and across Indiana. Our offerings include Auto Insurance, Home Insurance, Commercial Insurance, Business Insurance, Life Insurance, and Health Insurance. Each plan is backed by top-rated carriers and designed to fit your specific needs and budget.
             </p>
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -22,11 +22,11 @@ export default function Services() {
                   </div>
               </CardHeader>
               <CardContent className="flex flex-col flex-grow p-6">
-                <CardTitle className="font-headline text-2xl mb-4 text-primary">{service.title}</CardTitle>
+                <CardTitle as="h3" className="font-headline text-2xl mb-4 text-primary">{service.title}</CardTitle>
                 <p className="text-foreground/80 flex-grow">{service.description}</p>
                 <div className="mt-6">
                     <Button asChild variant="link" className="mt-2">
-                        <Link href={`/services/${service.slug}`}>Learn More →</Link>
+                        <Link href={`/services/${service.slug}`} aria-label={`Learn more about ${service.title} in Indianapolis, IN`}>Learn More →</Link>
                     </Button>
                 </div>
               </CardContent>

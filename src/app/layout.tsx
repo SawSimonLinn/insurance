@@ -1,34 +1,89 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import JsonLd from "@/components/layout/json-ld";
+import { siteConfig } from "@/lib/site-config";
+import {
+  getLocalBusinessJsonLd,
+  getOrganizationJsonLd,
+  getWebSiteJsonLd,
+} from "@/lib/structured-data";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#2c3b78",
+};
 
 export const metadata: Metadata = {
-  title: "Ventures Insurance Hub",
-  description: "Protecting What Matters Most: With Care and Confidence",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default:
+      "Ventures Quality Insurance Agency | Auto, Home & Business Insurance in Indianapolis, IN",
+    template: `%s | ${siteConfig.shortName}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    "insurance agency Indianapolis",
+    "Indianapolis insurance agent",
+    "auto insurance Indianapolis IN",
+    "home insurance Indianapolis",
+    "commercial insurance Indiana",
+    "life and health insurance Indianapolis",
+    "independent insurance agency Indiana",
+  ],
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    siteName: siteConfig.shortName,
+    title: `${siteConfig.shortName} | Indianapolis, IN`,
+    description: siteConfig.description,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1920,
+        height: 1080,
+        alt: `${siteConfig.name} office in Indianapolis, Indiana`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.shortName} | Indianapolis, IN`,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
   other: {
     "geo.region": "US-IN",
     "geo.placename": "Indianapolis",
   },
 };
 
-const localBusinessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "InsuranceAgency",
-  name: "Ventures Quality Insurance Agency, LLC",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "7774 Madison Avenue, Suite B",
-    addressLocality: "Indianapolis",
-    addressRegion: "IN",
-    postalCode: "46227",
-    addressCountry: "US",
-  },
-  telephone: "+1-317-300-1906",
-  faxNumber: "+1-317-300-1938",
-  email: "contact@venturesqualityinsurance.com",
-  url: "https://www.venturesqualityinsurance.com",
-};
+const localBusinessJsonLd = getLocalBusinessJsonLd();
+const organizationJsonLd = getOrganizationJsonLd();
+const webSiteJsonLd = getWebSiteJsonLd();
 
 export default function RootLayout({
   children,
@@ -52,10 +107,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
           rel="stylesheet"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
-        />
+        <JsonLd data={[localBusinessJsonLd, organizationJsonLd, webSiteJsonLd]} />
       </head>
       <body className="font-body antialiased">
         {children}

@@ -1,10 +1,27 @@
+import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import Breadcrumbs from "@/components/layout/breadcrumbs";
+import { siteConfig } from "@/lib/site-config";
+
+export const metadata: Metadata = {
+  title: "Accessibility Statement",
+  description:
+    "Ventures Quality Insurance Agency's commitment to digital accessibility and WCAG 2.1 AA conformance for our Indianapolis, IN insurance website.",
+  alternates: {
+    canonical: "/accessibility",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function AccessibilityPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
+      <Breadcrumbs items={[{ name: "Accessibility Statement", path: "/accessibility" }]} />
       <main className="flex-1 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">

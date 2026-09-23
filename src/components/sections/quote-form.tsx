@@ -87,11 +87,11 @@ export default function QuoteForm() {
   }
 
   return (
-    <section id="quote-form" className="py-16 md:py-24 bg-card">
+    <section id="quote-form" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto max-w-3xl px-4">
         <Card className="shadow-2xl">
           <CardHeader className="text-center">
-            <CardTitle className="font-headline text-3xl md:text-4xl font-bold text-primary">
+            <CardTitle as="h1" className="font-headline text-3xl md:text-4xl font-bold text-primary">
               Start Your Free Quote Today
             </CardTitle>
           </CardHeader>

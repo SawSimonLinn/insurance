@@ -39,7 +39,7 @@ export default function AboutUs() {
             <div className="mt-6 space-y-4 text-lg text-foreground/80">
               <p>
                 Venture Quality Insurance Agency is a proud family-owned,
-                independent insurance agency based in Indiana. Our mission is to
+                independent insurance agency based in Indianapolis, Indiana. Our mission is to
                 deliver exceptional service and personalized coverage that truly
                 fits each client’s unique needs.
               </p>
@@ -69,11 +69,11 @@ export default function AboutUs() {
                 <div className="relative w-full max-w-sm aspect-[3/4] rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105">
                   <Image
                     src="/headshot.jpg"
-                    alt="Hero background"
+                    alt="Portrait of the Ventures Quality Insurance Agency owner in Indianapolis, Indiana"
                     fill
                     className="object-cover"
-                    data-ai-hint="Hero background image"
-                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    data-ai-hint="professional headshot"
                   />
                 </div>
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

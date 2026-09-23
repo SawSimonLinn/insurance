@@ -1,10 +1,22 @@
+import type { Metadata } from 'next';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import Breadcrumbs from '@/components/layout/breadcrumbs';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description:
+    "Read Ventures Quality Insurance Agency's privacy policy on how we collect, use, and protect your personal information as an Indianapolis, IN insurance agency.",
+  alternates: {
+    canonical: '/privacy-policy',
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
+      <Breadcrumbs items={[{ name: 'Privacy Policy', path: '/privacy-policy' }]} />
       <main className="flex-1 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">

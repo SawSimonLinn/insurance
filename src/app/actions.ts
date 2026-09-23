@@ -109,3 +109,71 @@ export async function handleQuoteRequest(data: any) {
     return { success: false, error: `Email sending failed: ${error.message}` };
   }
 }
+
+export async function handleContactRequest(data: any) {
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    });
+
+    const { formatted: formattedPhone, tel: telPhone } = formatPhoneNumber(
+      data.phone
+    );
+    const phoneHtml = telPhone
+      ? `<a href="tel:${telPhone}" style="color:#0b5394;">${formattedPhone}</a>`
+      : formattedPhone;
+
+    const adminMail = {
+      from: `"Ventures Quality Insurance" <${process.env.GMAIL_USER}>`,
+      to: process.env.GMAIL_RECEIVER || process.env.GMAIL_USER,
+      subject: `New Contact Message: ${data.subject}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+          <h2 style="color: #0b5394;">New Contact Form Message</h2>
+          <p><strong>Full Name:</strong> ${data.name}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Phone:</strong> ${phoneHtml}</p>
+          <p><strong>Inquiry Type:</strong> ${data.inquiryType}</p>
+          <p><strong>Subject:</strong> ${data.subject}</p>
+          <p><strong>Message:</strong><br>${data.message}</p>
+          <hr>
+          <p style="color:#666;font-size:12px;">This message was sent from your website contact form.</p>
+        </div>
+      `,
+    };
+
+    const userMail = {
+      from: `"Ventures Quality Insurance" <${process.env.GMAIL_USER}>`,
+      to: data.email,
+      subject: "We've received your message!",
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+          <h2 style="color: #0b5394;">Thank you, ${data.name}!</h2>
+          <p>We've received your message and our team will get back to you shortly.</p>
+          <p><strong>Here's what you submitted:</strong></p>
+          <ul>
+            <li><strong>Inquiry Type:</strong> ${data.inquiryType}</li>
+            <li><strong>Subject:</strong> ${data.subject}</li>
+            <li><strong>Message:</strong> ${data.message}</li>
+          </ul>
+          <br>
+          <p>Best regards,</p>
+          <p><strong>Ventures Quality Insurance Team</strong><br>
+          <a href="https://www.venturesqualityinsurance.com">www.venturesqualityinsurance.com</a></p>
+        </div>
+      `,
+    };
+
+    await transporter.sendMail(adminMail);
+    await transporter.sendMail(userMail);
+
+    return { success: true };
+  } catch (error: any) {
+    console.error("Email send failed:", error);
+    return { success: false, error: `Email sending failed: ${error.message}` };
+  }
+}

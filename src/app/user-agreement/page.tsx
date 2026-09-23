@@ -1,10 +1,22 @@
+import type { Metadata } from 'next';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import Breadcrumbs from '@/components/layout/breadcrumbs';
+
+export const metadata: Metadata = {
+  title: 'User Agreement',
+  description:
+    "Terms and conditions for using the Ventures Quality Insurance Agency website, an Indianapolis, IN based independent insurance agency.",
+  alternates: {
+    canonical: '/user-agreement',
+  },
+};
 
 export default function UserAgreementPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
+      <Breadcrumbs items={[{ name: 'User Agreement', path: '/user-agreement' }]} />
       <main className="flex-1 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">

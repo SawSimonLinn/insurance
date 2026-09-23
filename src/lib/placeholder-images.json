@@ -2,7 +2,7 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "A modern and welcoming office interior, suggesting professionalism and comfort.",
+      "description": "Ventures Quality Insurance Agency office interior in Indianapolis, Indiana, a modern and welcoming space.",
       "imageUrl": "/insurance-hub.png",
       "imageHint": "professional office"
     },
@@ -38,9 +38,9 @@
     },
     {
       "id": "logo",
-      "description": "Ventures Quality Insurance agency logo",
+      "description": "Ventures Quality Insurance Agency logo",
       "imageUrl": "/company-logo.png",
-      "imageHint": "company logo"
+      "imageHint": "Ventures Quality Insurance Agency logo"
     }
   ]
 }

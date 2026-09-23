@@ -1,67 +1,86 @@
+import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import Breadcrumbs from "@/components/layout/breadcrumbs";
 import { Mail, Phone, Printer, Clock, FileText, BadgeInfo, MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ContactForm from "@/components/sections/contact-form";
+import { siteConfig } from "@/lib/site-config";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Insurance Agency in Indianapolis, IN",
+  description:
+    "Contact Ventures Quality Insurance Agency at our Indianapolis, IN office. Call (317) 300-1906, email us, or send a message for quotes, claims, and policy support.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Ventures Quality Insurance Agency | Indianapolis, IN",
+    description:
+      "Reach our Indianapolis, IN insurance office by phone, email, or message for quotes, claims, and policy support.",
+    url: "/contact",
+  },
+};
 
 export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
+      <Breadcrumbs items={[{ name: "Contact Us", path: "/contact" }]} />
       <main className="flex-1 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary mb-8">
-                Contact Us
+                Contact Our Indianapolis Insurance Agency
               </h1>
               <p className="text-lg text-foreground/80 mb-12 max-w-4xl mx-auto">
                 We're here to help. Reach out to us with any questions or to
                 discuss your insurance needs.
               </p>
-              <div className="flex items-start gap-4 text-left max-w-4xl mx-auto mb-8">
+              <address className="not-italic flex items-start gap-4 text-left max-w-4xl mx-auto mb-8">
                 <MapPin className="w-8 h-8 text-primary mt-1" />
                 <div>
-                  <h3 className="font-bold text-xl text-primary">
+                  <h2 className="font-bold text-xl text-primary">
                     Office Address
-                  </h3>
+                  </h2>
                   <p className="text-lg text-foreground/80">
-                    7774 Madison Avenue, Suite B, Indianapolis, IN 46227
+                    {siteConfig.addressDisplay}
                   </p>
                 </div>
-              </div>
+              </address>
               <div className="grid md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto">
                 <div className="flex items-start gap-4">
                   <Phone className="w-8 h-8 text-primary mt-1" />
                   <div>
-                    <h3 className="font-bold text-xl text-primary">
+                    <h2 className="font-bold text-xl text-primary">
                       Office Phone
-                    </h3>
+                    </h2>
                     <a
                       href="tel:317-300-1906"
                       className="text-lg text-foreground/80 hover:text-primary"
                     >
-                      (317) 300-1906
+                      {siteConfig.phoneDisplay}
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Mail className="w-8 h-8 text-primary mt-1" />
                   <div>
-                    <h3 className="font-bold text-xl text-primary">Email</h3>
+                    <h2 className="font-bold text-xl text-primary">Email</h2>
                     <a
-                      href="mailto:contact@venturesqualityinsurance.com"
+                      href={`mailto:${siteConfig.email}`}
                       className="text-lg text-foreground/80 hover:text-primary"
                     >
-                      contact@venturesqualityinsurance.com
+                      {siteConfig.email}
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Printer className="w-8 h-8 text-primary mt-1" />
                   <div>
-                    <h3 className="font-bold text-xl text-primary">Fax</h3>
-                    <p className="text-lg text-foreground/80">(317) 300-1938</p>
+                    <h2 className="font-bold text-xl text-primary">Fax</h2>
+                    <p className="text-lg text-foreground/80">{siteConfig.faxDisplay}</p>
                   </div>
                 </div>
               </div>
@@ -75,7 +94,7 @@ export default function ContactPage() {
                 <div className="grid md:grid-cols-1 gap-8">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                      <CardTitle as="h3" className="flex items-center gap-3 font-headline text-2xl text-primary">
                         <Phone />
                         Customer Service
                       </CardTitle>
@@ -101,7 +120,7 @@ export default function ContactPage() {
                   </Card>
                   <Card>
                     <CardHeader>
-                      <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                      <CardTitle as="h3" className="flex items-center gap-3 font-headline text-2xl text-primary">
                         <FileText />
                         Report a New Claim
                       </CardTitle>
@@ -132,7 +151,7 @@ export default function ContactPage() {
                   </Card>
                   <Card>
                     <CardHeader>
-                      <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                      <CardTitle as="h3" className="flex items-center gap-3 font-headline text-2xl text-primary">
                         <BadgeInfo />
                         Claim Status
                       </CardTitle>

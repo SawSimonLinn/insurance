@@ -19,6 +19,8 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
     { href: "/about#services", label: "Services" },
+    { href: "/faq", label: "FAQ" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -38,7 +40,7 @@ export default function Header() {
             Ventures Quality Insurance
           </span>
         </Link>
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <nav aria-label="Primary" className="hidden md:flex items-center space-x-6 text-sm font-medium">
           <Link href="/" className="hover:text-primary transition-colors">
             Home
           </Link>
@@ -50,6 +52,12 @@ export default function Header() {
             className="hover:text-primary transition-colors"
           >
             Services
+          </Link>
+          <Link href="/faq" className="hover:text-primary transition-colors">
+            FAQ
+          </Link>
+          <Link href="/contact" className="hover:text-primary transition-colors">
+            Contact
           </Link>
         </nav>
         <div className="flex items-center gap-4">

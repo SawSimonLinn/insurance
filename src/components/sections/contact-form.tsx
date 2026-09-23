@@ -88,7 +88,7 @@ export default function ContactForm() {
       <div className="container mx-auto max-w-3xl px-0">
         <Card className="shadow-2xl">
           <CardHeader className="text-center">
-            <CardTitle className="font-headline text-3xl md:text-4xl font-bold text-primary">
+            <CardTitle as="h3" className="font-headline text-3xl md:text-4xl font-bold text-primary">
               Send Us a Message
             </CardTitle>
             <CardDescription>

@@ -16,7 +16,7 @@ export default function Story() {
             <p>
               At Ventures Quality Insurance Agency, LLC, every policy begins
               with a story, yours and ours. We’re a family-owned, independent
-              insurance agency founded in Indiana with one goal: to make quality
+              insurance agency founded in Indianapolis, Indiana with one goal: to make quality
               insurance personal, transparent, and accessible for every
               individual and business we serve.
             </p>
